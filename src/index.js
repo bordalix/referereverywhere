@@ -25,7 +25,7 @@ async function handleRequest(request) {
 	const response = await fetch(tofetch, { headers: { Referer: referer } })
 	// gather response and return
 	const results = await gatherResponse(response)
-	return new Response(results)
+	return new Response(results, { headers: { 'Access-Control-Allow-Origin': '*' } })
 }
 
 addEventListener('fetch', (event) => {
